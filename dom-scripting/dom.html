@@ -1,0 +1,50 @@
+<html>
+<head>
+	<style>
+		.special{
+			text-transform: uppercase;
+			font-style: italic;
+		}
+		body {
+			color: white;
+			background-color: black;
+		}
+		#purchases {
+			border : 1px solid white;
+			backgroud-color: #333;
+			color: #ccc;
+			padding : 1em;
+		}
+		#purchases li {
+			font-weight: bold;
+		}
+	</style>
+    <script>
+		function test() {
+			var items = document.getElementsByTagName("*");
+			for (var i=0; i<items.length; i++) {
+				alert(typeof items[i]);
+			}
+			alert("getElementById");
+			alert(document.getElementById("t"));
+		}
+		function test2() {
+			alert("xxxx"); 
+		}
+    </script>
+</head>
+<body>
+<p class="special" id="t">购物list</p>
+
+<ul id = 'purchases'>
+<li>列表</li>
+<li>列表</li>
+<li>列表</li>
+<li>列表</li>
+<li>列表</li>
+<li>列表</li>
+</ul>
+<button onclick="test2()">点我</button>
+
+</body>
+</html>
