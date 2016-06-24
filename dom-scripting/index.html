@@ -22,8 +22,11 @@ window.onload=genLink;
 function genLink(){
 	var elements = document.getElementsByTagName("a"); //此处是getElementsByTagName，不是getElementsByName
 	for (var i = 0; i < elements.length; i++) {
-		alert(elements[i].onclick);
     	elements[i].onclick = function(){
+    		showPic(this); // 此处只能用this，不能用elements[i]
+    		return false;
+    	};
+    	elements[i].onkeypress = function(){
     		showPic(this); // 此处只能用this，不能用elements[i]
     		return false;
     	};
@@ -33,15 +36,9 @@ function genLink(){
 	
 </head>
 <body>
-<ul>
-	<li></li>
-</ul>
-<ul>
-	<li class="testclass"></li>
-	<li class="testclass"></li>
-	<li class="testclass"></li>
-</ul>
+
 	<ul>
+		
 	<!--
 	<li><a href='images/1.jpg' onclick="showPic(this);return false;">菊花</a></li>
 	<li><a href='images/2.jpg' onclick="showPic(this);return false;">山丘</a></li>

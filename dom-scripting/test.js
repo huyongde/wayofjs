@@ -4,4 +4,5 @@ alert(a);
 function test() {
 	console.log("test");
 	alert("hello world");
+	document.getElementById("");
 }
