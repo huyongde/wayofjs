@@ -1,50 +1,10 @@
 <html>
 <head>
-<style>
-body {
-	background-color:black;
-	color:white;
-}
-</style>
-<script>
-function showPic(whichPic){
-
-	var source = whichPic.getAttribute("href");
-	var placeholder = document.getElementById("placeholder");
-	placeholder.setAttribute("src", source);
-}
-function countChildNum(){
-	var body_element = document.getElementsByName('body');
-	alert(body_element.length);
-}
-
-window.onload=genLink;
-function genLink(){
-	var elements = document.getElementsByTagName("a"); //此处是getElementsByTagName，不是getElementsByName
-	for (var i = 0; i < elements.length; i++) {
-    	elements[i].onclick = function(){
-    		showPic(this); // 此处只能用this，不能用elements[i]
-    		return false;
-    	};
-    	elements[i].onkeypress = function(){
-    		showPic(this); // 此处只能用this，不能用elements[i]
-    		return false;
-    	};
-	}
-}
-</script>
-	
+	<link rel="stylesheet" href="./test.css">
+	<script src="./test.js"></script>
 </head>
 <body>
-
-	<ul>
-		
-	<!--
-	<li><a href='images/1.jpg' onclick="showPic(this);return false;">菊花</a></li>
-	<li><a href='images/2.jpg' onclick="showPic(this);return false;">山丘</a></li>
-	<li><a href='images/3.jpg' onclick="showPic(this);return false;">花花</a></li>
-	<li><a href='images/4.jpg' onclick="showPic(this);return false;">海蜇</a></li>
-	-->
+	<ul id="ul_1">
 	<li><a href='images/1.jpg' >菊花</a></li>
 	<li><a href='images/2.jpg' >山丘</a></li>
 	<li><a href='images/3.jpg' >花花</a></li>
