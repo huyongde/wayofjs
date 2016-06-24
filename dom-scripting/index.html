@@ -25,6 +25,7 @@ function genLink(){
 		alert(elements[i].onclick);
     	elements[i].onclick = function(){
     		showPic(this); // 此处只能用this，不能用elements[i]
+    		console.log("test");
     		return false;
     	};
 	}
