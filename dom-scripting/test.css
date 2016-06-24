@@ -1,7 +1,20 @@
 body {
 	background-color: black;
-	color: white;
+	color: gray;
 }
 #ul_1 {
 	list-style:none;
+}
+li:hover {
+	font-weight: bold;
+	font-size: 20px;
+	background-color: green;
+}
+table {
+	border: 1;
+}
+tr {
+	height: 20px;
+	font-weight: bold;
+	font-size: 18px;
 }
