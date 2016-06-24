@@ -25,7 +25,6 @@ function genLink(){
 		alert(elements[i].onclick);
     	elements[i].onclick = function(){
     		showPic(this); // 此处只能用this，不能用elements[i]
-    		console.log("test");
     		return false;
     	};
 	}
@@ -34,6 +33,14 @@ function genLink(){
 	
 </head>
 <body>
+<ul>
+	<li></li>
+</ul>
+<ul>
+	<li class="testclass"></li>
+	<li class="testclass"></li>
+	<li class="testclass"></li>
+</ul>
 	<ul>
 	<!--
 	<li><a href='images/1.jpg' onclick="showPic(this);return false;">菊花</a></li>
