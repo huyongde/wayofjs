@@ -56,8 +56,12 @@ function dealTable() {
 	var tr_cnt = trs.length;
 	for (var i=0; i<tr_cnt; i++) {
 		if(i%2 == 1){
+			//trs[i].className = "testtr";
+			trs[i].setAttribute('class', 'testtr');
+			/*
 			trs[i].style.backgroundColor = "green";
 			trs[i].style.height = "30";
+			*/
 		}
 	}
 }
