@@ -69,4 +69,4 @@ window.onload = function() {
 	test();
 	genLink();
 	dealTable();
-}
+};
