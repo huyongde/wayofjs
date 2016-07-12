@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 function postionMessage() {
     var elem = document.getElementById("message");
     elem.style.position = "absolute";
@@ -31,6 +32,7 @@ window.onload = function() {
     postionMessage();
 };
 
+=======
 function postionMessage() {
     var elem = document.getElementById("message");
     elem.style.position = "absolute";
@@ -91,3 +93,4 @@ window.onload = function() {
     postionMessage();
 };
 
+>>>>>>> cf8e2815c58c626f10b0b8dbe18a9f0fb6ebb615
