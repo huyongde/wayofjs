@@ -1,0 +1,94 @@
+<!--<html xmlns="http://www.w3.org/1999/xhtml">
+-->
+
+<html>
+<head runat="server">
+    <title></title>
+    <style type="text/css">
+        .tooltip
+        {
+            width:120px;
+            height:23px;
+            line-height:23px;
+            background-color:#CCCCCC;
+        }
+        .tooltip a
+        {
+            color: #333333;
+            display: block;
+            font-size: 12px;
+            font-weight: bold;
+            text-indent: 10px;
+        }
+    </style>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#blogContent").mouseup(function (e) {
+                var x = 10;
+                var y = 10;
+                var r = "";
+                if (document.selection) {
+                    r = document.selection.createRange().text;
+                }
+                else if (window.getSelection()) {
+                    r = window.getSelection();
+                }
+                if (r!= "") {
+                    var bowen = "翻译";
+                    var tooltip = "<div id='tooltip' class='tooltip'><a onclick=ask('"+r+"')>" + bowen + "</a></div>";
+                    $("body").append(tooltip);
+                    $("#tooltip").css({
+                        "top": (e.pageY + y) + "px",
+                        "left": (e.pageX + x) + "px",
+                        "position": "absolute"
+                    }).show("fast");
+                }
+            }).mousedown(function () {
+                $("#tooltip").remove();
+            });
+        })
+
+        function ask(r) {
+            if (r != "") {
+				var url = "http://fanyi.youdao.com/openapi.do?keyfrom=yourkeyfrom&key=yourkey&type=data&doctype=jsonp&version=1.1&q=" + r;
+				$.ajax({
+                type: "get",
+				dataType: 'jsonp',
+                url: url,
+                success: function(resp) {
+					var bowen = resp.translation;
+                    //var tooltip = "<div id='tooltip' class='tooltip'><a onclick=ask('"+r+"')>" + bowen + "</a></div>";
+                    //$("body").append(tooltip);
+					/*
+                    $("#tooltip").css({
+                        "top": (e.pageY + y) + "px",
+                        "left": (e.pageX + x) + "px",
+                        "position": "absolute"
+                    }).show("fast");
+					*/
+					var x = document.getElementById('tooltip');
+					x.innerHTML = bowen;
+                
+                },
+                error: function(resp) {
+                    dialog({
+                        'type': 2,
+                        'title': resp.msg 
+                    });
+                }
+            });
+		
+             //window.open('http://v.t.sina.com.cn/share/share.php?searchPic=false&title='+r+'&url=http://www.cnblogs.com/durongjian&source=天行健，自强不息&sourceUrl=http%3A%2F%2Fblog.sina.com.cn&content=utf-8&appkey=1617465124', '_blank', 'height=515, width=598, toolbar=no, menubar=no, scrollbars=auto, resizable=yes, location=no, status=yes');
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="blogContent">
+        2011年到了，在前几天的“2010岁末小记”中给自己定下了一个计划，其中有一条就是“每周至少写一篇技术博客。用博客的方式来督促自己学习和进步，记下学习的新知识和积累的知识点，构建自己的知识库。”。园子里高手很多，MVP就有好几位，看他们的文章真有“看君一博文，胜读四年书”之感。曾经对委托、事件云里雾里的我看了张子阳的“C#中的委托和事件”后终于明白了很多，园子里像这样的好文章还有很多，作为菜鸟我真的获益匪浅。
+
+虽然自己现在水平很差，但高手都是从菜鸟成长起来的，因此我坚信只要努力学习，每天都有收获和进步，逐渐提高自己的编程水平，总有一天也能厚积薄发，写出一些比较好的博文与大家分享，帮助新手进步。作为新年第一篇博文，我打算写一个博客备份系统系列文章与园友们分享，晒晒自己的代码，非常欢迎大家提出意见和建议。
+    </div>
+</body>
+</html>
